@@ -122,6 +122,8 @@ defmodule Ecto.Adapters.MyXQL do
 
   defp bool_decode(<<0>>), do: {:ok, false}
   defp bool_decode(<<1>>), do: {:ok, true}
+  defp bool_decode(<<0::1>>), do: {:ok, false}
+  defp bool_decode(<<1::1>>), do: {:ok, true}
   defp bool_decode(0), do: {:ok, false}
   defp bool_decode(1), do: {:ok, true}
   defp bool_decode(x), do: {:ok, x}
